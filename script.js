@@ -1,9 +1,5 @@
 const a = n=>  n*n
-const divide =(a,b) => {
-    console.log("This is a division function")
-    return a/b
-}
-console.log(divide(9,3));
+
 const isAdult = age => age >=18 
 console.log(isAdult(30))
 
@@ -21,14 +17,18 @@ const square = n => n*n
 applyAndLog(square,5)
 
 
-const applyALL = (n , T) =>{
-
-    for (let  i = 0 ; i <T.length ; i++ ){
-            console.log(T[i].name,"(",n,")=",T[i](n))
-
+const Calculator=(a,b,T)=>{
+    for ( let i = 0 ; i< T.length ; i++){
+        T[i](a,b)
 
     }
-
-
 }
-applyALL(4,[isAdult,square])
+
+const add =(a,b)=> console.log(a,"+",b,"=",a+b) 
+const substract =(a,b)=> console.log(a,"-",b,"=",a-b) 
+const multiply=(a,b)=> console.log(a,"*",b,"=",a*b) 
+const divide =(a,b)=> console.log(a,"/",b,"=",a/b) 
+
+
+
+Calculator(2,4,[add,substract,multiply,divide])
