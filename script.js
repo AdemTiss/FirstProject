@@ -35,3 +35,35 @@ const Movie = ()=> {
 }
 
 Movie()
+
+
+
+const studentClassManipulation= () => {
+        const students = [
+        { name: "Adem", grades: [85, 92, 78, 90, 88], subject: "Math" },
+        { name: "Sara", grades: [92, 95, 98, 91, 97], subject: "Science" },
+        { name: "John", grades: [55, 60, 45, 70, 58], subject: "Math" },
+        { name: "Lisa", grades: [78, 82, 79, 85, 80], subject: "Science" },
+        { name: "Mike", grades: [40, 35, 50, 45, 38], subject: "Math" }
+    ]
+
+    const studentsWithAverage= students.map(student=> ({
+        ...student,average: student.grades.reduce((total,grade)=>total+grade,0)/student.grades.length
+    }))
+    console.log(studentsWithAverage)
+    const passingStudents = studentsWithAverage.filter(student=> student.average>=70)
+    console.log(passingStudents)
+    const failingStudentsNames = (studentsWithAverage.filter(student=> student.average<70)).map(student=> student.name)
+    console.log(failingStudentsNames)
+    const hasPerfectScore = studentsWithAverage.some(student => student.grades.some(grade => grade === 100))
+    console.log(hasPerfectScore)
+    const classAverage = studentsWithAverage.reduce((total,student)=>total+student.average,0)/studentsWithAverage.length
+    console.log(classAverage)
+    const passingMathStudents = passingStudents.filter(passingStudent=> passingStudent.subject==="Math")
+    studentsWithAverage.forEach(student => {
+    const status = student.average >= 70 ? "PASSING" : "FAILING"
+    console.log(`${student.name} | ${student.subject} | Average: ${student.average} | Status: ${status}`)
+})
+}
+
+studentClassManipulation()
