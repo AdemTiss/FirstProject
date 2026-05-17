@@ -1,65 +1,37 @@
-const TransformTemp= a => (a*(9/5)) + 32
-console.log(TransformTemp(24))
-const ReverseString = ch  => ch.split("").reverse().join("")
-console.log(ReverseString("Hello"))
-const LongerString = (ch1,ch2) => ch1.length>=ch2.length ? ch1:  ch2 
-console.log(LongerString("adem","HHHHH"))
+const arrayManipulation = () => {
+    const numbers = [3, 7, 12, 5, 18, 1, 9, 14]
 
-
-const fizzBuzz = n => n%3==0 ? "Fizz" : n%5==0 ? "FizzBuzz" : n 
-
-console.log(fizzBuzz(11))
-
-const maxNum = L => {
-    let max = L[0]
-    for( let i = 1 ; i <L.length ; i++){
-        if (L[i] > max) {
-            max = L[i];
-        }
-
-    }
-    return max 
-}
-console.log(maxNum([1,2,3,4]))
-
-
-const numVowels = ch => {
-    let VowelsTotalOccurence = 0 
-    for ( let i = 0 ; i < ch.length ; i++){
-            if("aeoyi".includes(ch[i])){
-                VowelsTotalOccurence+=1
-            }
-    }
-    return VowelsTotalOccurence 
-
+    numbers.forEach(n => console.log(3*n))
+    const bigNumbers = numbers.filter(n=> n>6)
+    const squaredNumbers = numbers.map(n => n *n)
+    console.log(bigNumbers)
+    console.log(squaredNumbers)
 }
 
-console.log(numVowels("adem"))
 
-const noDuplicate = L => { 
-    let L1=[]
-    for ( let i = 0 ; i < L.length ; i++){
-        // this one is not working and ikd why 
-        if (!(L1.includes(L[i]))){
-            L1.push(L[i])
-        }
-    
-
-    }
-    return L1
-}
-
-console.log(noDuplicate([1,2,2,3,4,1,3,2,4]))
+arrayManipulation()
 
 
-const repeat= (func , n )=>{
+const Movie = ()=> {
+    const movies = [
+        { title: "Inception", rating: 8.8, year: 2010, watched: true },
+        { title: "Interstellar", rating: 8.6, year: 2014, watched: false },
+        { title: "The Dark Knight", rating: 9.0, year: 2008, watched: true },
+        { title: "Dunkirk", rating: 7.9, year: 2017, watched: false },
+        { title: "Tenet", rating: 7.4, year: 2020, watched: true },
+        { title: "Oppenheimer", rating: 8.4, year: 2023, watched: false }
+    ]
+    const movieTitles= movies.map(movie=>movie.title)
+    const excellentMovies=movies.filter(movie=> movie.rating>8.5)
+    const watchList= movies.filter( movie=> movie.watched === false )
+    const averageRatings= movies.reduce((total,movie)=>total+movie.rating,0)/movies.length
+    const firstUnwatchedMovie= watchList.find(movie=> movie.rating>8.0 )
+    const isBelow90=movies.some(movie => movie.rating>9.0)
+    const isWatchedAll = movies.every(movie => movie.watched)
+    const movieWatchedTitles= (movies.filter(movie => movie.watched ===true)).map(movie=> movie.title)
 
-    for (let i = 0 ; i< n ; i++){
-        func()
-    }
+
 
 }
 
-const compose = (func1,func2)=> n =>func2(func1(n))
-
-const func1ThenFunc2 =  compose(func1,func2)
+Movie()
