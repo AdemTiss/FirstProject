@@ -71,10 +71,10 @@ studentClassManipulation()
 
 const carManipulation= () => {
 
-    const car = { // this is a class 
+    const car = { // this is an object
         brand:"BMW",
         speed:140,
-        accelerate : () => car.speed+=10, // a function inside a class is called a method
+        accelerate : () => car.speed+=10, // a function inside an object    is called a method
         brake : () => car.speed -=10,
         status : () => console.log(`Brand : ${car.brand} | Speed : ${car.speed}`)
     }
@@ -88,3 +88,22 @@ const carManipulation= () => {
 }
 
 carManipulation()
+
+
+
+const learningDestructuring = ()=>{
+
+    const product = {
+        title: "Laptop",
+        price: 999,
+        brand: "Dell",
+        inStock: true
+    }
+
+    const {title , price , brand , inStock} = product 
+    const {title:productTitle , price : cost } = product     
+    const productDescription = ({title,brand,price:cost,inStock}) => console.log(`${title} by ${brand} - ${cost} - ${inStock?"In Stock":"Not In Stock"}`)
+    productDescription(product)
+
+}
+learningDestructuring()
