@@ -67,3 +67,24 @@ const studentClassManipulation= () => {
 }
 
 studentClassManipulation()
+
+
+const carManipulation= () => {
+
+    const car = { // this is a class 
+        brand:"BMW",
+        speed:140,
+        accelerate : () => car.speed+=10, // a function inside a class is called a method
+        brake : () => car.speed -=10,
+        status : () => console.log(`Brand : ${car.brand} | Speed : ${car.speed}`)
+    }
+
+    car.status()       
+    car.accelerate()
+    car.status()       
+    car.brake()
+    car.status()  
+
+}
+
+carManipulation()
