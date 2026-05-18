@@ -122,3 +122,99 @@ const learningOptionalChainingAndNullishCoalescing = () =>{
 
 learningOptionalChainingAndNullishCoalescing()
 
+
+
+
+const shortHandProperties=()=>{
+
+    const title = "Laptop"
+    const price = 999
+    const brand = "Dell"
+    const product ={
+        title , 
+        price,
+        brand    
+    }
+}
+const makeUser=(name , age , city)=> ({name,age,city})
+const dynamicObjectCreation= () => {
+    const propName= "score"
+    const dynamicObj ={[propName] : 30}
+    console.log(dynamicObj.score )
+
+}
+
+
+const objectMethods = () => {
+
+    const scores = {
+        Adem: 85,
+        Sara: 92,
+        John: 67,
+        Lisa: 78,
+        Mike: 95
+    }
+
+    const names = Object.keys(scores)
+    const scoress = Object.values(scores)
+    console.log(names )
+    console.log(scoress)
+    Object.entries(scores).filter(([name,score])=> score >=70).forEach(([name,score])=> console.log(`${name} : ${score}`))
+    const average = scoress.reduce((total,score)=>total+score,0)/scoress.length 
+    console.log(average)
+}
+objectMethods()
+
+
+
+
+const test1= () => {
+    
+
+    const person = {
+        firstName: "Adem",
+        lastName: "Tiss",
+        birthYear: 2006,
+        job: "student"
+    }
+    const {firstName,lastName,birthYear,job}= person
+    console.log(`${firstName} ${lastName} | ${birthYear}`)
+    const currentAge =  new Date().getFullYear()- birthYear 
+    const newPerson = {...person,age:currentAge}
+    console.log(newPerson)
+}   
+test1()
+
+const test2=() => {
+
+    const cart = {
+        apple: { price: 1.5, quantity: 4 },
+        bread: { price: 2.0, quantity: 2 },
+        milk: { price: 1.2, quantity: 3 },
+        cheese: { price: 4.5, quantity: 1 }
+    }
+
+    const entities = Object.values(cart)
+    const totalPrice=entities.reduce((total,{price,quantity})=> total + (price*quantity),0)
+    console.log(totalPrice)
+    const cartList = Object.entries(cart)
+    cartList.filter(([name,{price}])=> price>=2.0).forEach(([name])=> console.log(`${name}`))
+    cartList.forEach(([name,{price,quantity}])=> console.log(`${name} x${quantity} = $${price*quantity}`))
+}
+test2()
+
+
+const test3=()=>{
+
+    const employees = {
+        john: { salary: 3000, department: "Engineering", yearsWorked: 5 },
+        sara: { salary: 4500, department: "Design", yearsWorked: 3 },
+        mike: { salary: 2800, department: "Engineering", yearsWorked: 7 },
+        lisa: { salary: 5000, department: "Management", yearsWorked: 10 }
+    }
+
+    const employeesList=Object.entries(employees)
+    employeesList.filter(([name,{department}])=> department==="Engineering").forEach(([name,{}])=> console.log(`${name}`))
+
+}
+test3()
