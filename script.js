@@ -102,8 +102,23 @@ const learningDestructuring = ()=>{
 
     const {title , price , brand , inStock} = product 
     const {title:productTitle , price : cost } = product     
-    const productDescription = ({title,brand,price:cost,inStock}) => console.log(`${title} by ${brand} - ${cost} - ${inStock?"In Stock":"Not In Stock"}`)
+    const productDescription =  ({title,brand,price:cost,inStock}) => console.log(`${title} by ${brand} - ${cost} - ${inStock?"In Stock":"Not In Stock"}`)
     productDescription(product)
 
 }
 learningDestructuring()
+
+
+const learningOptionalChainingAndNullishCoalescing = () =>{
+    const users = [
+        { name: "Adem", address: { city: "Tunis" }, contact: { phone: "123" } },
+        { name: "Sara", address: { city: "Algiers" } },
+        { name: "John" },
+    ]
+    users.forEach(user=> console.log(`${user?.name ?? "name Does Not Exist"} | ${user?.address?.city ?? "Adress does not exist"} | ${user?.contact?.phone ?? "phone does not exist"}`))
+
+
+}
+
+learningOptionalChainingAndNullishCoalescing()
+
